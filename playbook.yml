@@ -1,0 +1,17 @@
+---
+- name: Install nginix and index
+  hosts: localhost
+  become: true
+
+  tasks:
+  - name: install nginix
+    apt:
+      name: nginx
+      state: present
+
+  - name: copy index
+    copy:
+      src: index.html
+      dest: /var/www/html/index.html
+      mode: '0644'
+
